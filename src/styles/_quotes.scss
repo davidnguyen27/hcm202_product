@@ -1,0 +1,96 @@
+.quotes-section {
+  position: relative;
+  padding: 6rem 2rem;
+  background: var(--primary-color);
+  color: var(--text-light);
+  text-align: center;
+  overflow: hidden;
+
+  .quotes-overlay {
+    background: url("/images/bac-ho.png") center/contain no-repeat;
+    opacity: 0.06;
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    width: 600px;
+    height: 600px;
+    transform: translateX(-50%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+    margin-bottom: 3rem;
+    position: relative;
+    z-index: 3;
+    color: var(--secondary-color);
+    background: var(--primary-color);
+    display: inline-block;
+    padding: 0 1rem;
+  }
+
+  .quotes-carousel {
+    max-width: 800px;
+    min-height: 180px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+
+    .quote-text {
+      font-size: 1.75rem;
+      font-style: italic;
+      line-height: 1.8;
+      min-height: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: opacity 0.5s ease;
+      animation: fadeIn 0.8s ease;
+    }
+
+    .dots {
+      margin-top: 1.5rem;
+      display: flex;
+      justify-content: center;
+      gap: 0.5rem;
+
+      .dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--text-light);
+        opacity: 0.3;
+        cursor: pointer;
+        transition: all 0.3s;
+
+        &.active {
+          background: var(--secondary-color);
+          opacity: 1;
+        }
+      }
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .quotes-overlay {
+      width: 400px;
+      height: 400px;
+    }
+
+    .quote-text {
+      font-size: 1.4rem;
+    }
+  }
+}

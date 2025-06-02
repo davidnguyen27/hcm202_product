@@ -1,0 +1,115 @@
+.blog-section {
+  padding: 4rem 2rem;
+  background: var(--background-color);
+}
+
+.blog-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 2.5rem;
+  margin-top: 3rem;
+}
+
+.blog-post.modern-card {
+  background: #fff;
+  border-radius: 1.5rem;
+  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
+  padding: 2.5rem 2rem 2rem 2rem;
+  transition: box-shadow 0.3s, transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+  cursor: pointer;
+  min-height: 320px;
+  outline: none;
+}
+
+.blog-post.modern-card:focus,
+.blog-post.modern-card:hover {
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.13);
+  transform: translateY(-6px) scale(1.025);
+}
+
+.blog-icon {
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 50%;
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+}
+
+.blog-meta {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 0.95rem;
+  color: #888;
+  margin-bottom: 1.1rem;
+}
+
+.blog-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  margin-bottom: 0.7rem;
+  line-height: 1.3;
+}
+
+.blog-excerpt {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #555;
+  margin-bottom: 2.2rem;
+  flex: 1 1 auto;
+}
+
+.blog-readmore-btn {
+  display: inline-flex;
+  align-items: center;
+  background: var(--primary-color);
+  color: #fff;
+  font-weight: 600;
+  border-radius: 999px;
+  padding: 0.5rem 1.3rem;
+  font-size: 1rem;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
+  transition: background 0.2s, color 0.2s;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.blog-readmore-btn .arrow {
+  margin-left: 0.5rem;
+  font-size: 1.2em;
+}
+
+.blog-post.modern-card:focus .blog-readmore-btn,
+.blog-post.modern-card:hover .blog-readmore-btn {
+  background: var(--secondary-color);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .blog-grid {
+    grid-template-columns: 1fr;
+    gap: 1.2rem;
+  }
+  .blog-post.modern-card {
+    padding: 1.3rem 1rem 1rem 1rem;
+    min-height: 220px;
+  }
+  .blog-title {
+    font-size: 1.1rem;
+  }
+  .blog-excerpt {
+    font-size: 0.97rem;
+  }
+}

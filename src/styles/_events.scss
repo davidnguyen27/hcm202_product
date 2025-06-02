@@ -1,0 +1,24 @@
+.events-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 0 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.event-item {
+  background: var(--card-background);
+  padding: 2rem;
+  border-radius: var(--card-radius);
+  box-shadow: var(--box-shadow);
+}
+
+/* Poetry Section */
+.poetry-content {
+  display: none;
+}
+
+.poem {
+  display: none;
+}
