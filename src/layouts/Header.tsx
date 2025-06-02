@@ -1,10 +1,22 @@
+import { useEffect, useState } from "react";
 import bacHoImg from "@/assets/images/bac-ho.png";
 import quocHuyImg from "@/assets/images/quoc-huy.png";
 
 export default function Header() {
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <header className="header">
-      <nav className="navbar">
+      <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <ul>
           <li>
             <a href="#biography">Tiểu Sử</a>
@@ -35,16 +47,24 @@ export default function Header() {
 
       <div className="header-content">
         <div className="header-left">
-          <img src={quocHuyImg} alt="Quốc huy Việt Nam" className="quoc-huy" />
-          <h1 className="title">Tư Tưởng Hồ Chí Minh</h1>
-          <p className="subtitle">Di sản vô giá của dân tộc Việt Nam</p>
-          <a href="#biography" className="btn header-btn">
+          <img 
+            src={quocHuyImg} 
+            alt="Quốc huy Việt Nam" 
+            className="quoc-huy fade-in"
+          />
+          <h1 className="title slide-up">Tư Tưởng Hồ Chí Minh</h1>
+          <p className="subtitle slide-up">Di sản vô giá của dân tộc Việt Nam</p>
+          <a href="#biography" className="btn header-btn slide-up">
             Khám Phá Hành Trình
           </a>
         </div>
 
         <div className="header-right">
-          <img src={bacHoImg} alt="Chủ tịch Hồ Chí Minh" className="bac-ho-img" />
+          <img 
+            src={bacHoImg} 
+            alt="Chủ tịch Hồ Chí Minh" 
+            className="bac-ho-img slide-right"
+          />
         </div>
       </div>
     </header>

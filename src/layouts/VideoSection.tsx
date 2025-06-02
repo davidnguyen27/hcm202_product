@@ -1,21 +1,23 @@
+// import { useState } from "react";
+
 const videos = [
   {
     id: 1,
     title: "Cuộc đời và sự nghiệp của Bác Hồ",
-    thumbnail: "/thumbnails/thumbnail1.jpg",
-    videoUrl: "https://www.youtube.com/embed/cxKnRdHQIm4?si=0j8idoBOvTxHNOsE",
+    thumbnail: "https://img.youtube.com/vi/cxKnRdHQIm4/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/cxKnRdHQIm4",
   },
   {
     id: 2,
     title: "Tư tưởng Hồ Chí Minh trong thời đại mới",
-    thumbnail: "/thumbnails/thumbnail2.jpg",
-    videoUrl: "https://www.youtube.com/embed/k60QAeDT56M?si=5w0h-UqnQcJfgdA2",
+    thumbnail: "https://img.youtube.com/vi/k60QAeDT56M/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/k60QAeDT56M",
   },
   {
     id: 3,
     title: "Hồ Chí Minh và nền ngoại giao Việt Nam",
-    thumbnail: "/thumbnails/thumbnail3.jpg",
-    videoUrl: "https://www.youtube.com/embed/qAtIkz2kJFE",
+    thumbnail: "https://img.youtube.com/vi/XvXT476mPQ4/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/XvXT476mPQ4",
   },
 ];
 
@@ -25,7 +27,14 @@ export default function VideoSection() {
       <h2 className="section-title fade-in">Video Tư Liệu</h2>
 
       <div className="video-hero slide-up">
-        <iframe src={videos[0].videoUrl} frameBorder="0" allowFullScreen loading="lazy"></iframe>
+        <iframe 
+          src={videos[0].videoUrl} 
+          frameBorder="0" 
+          allowFullScreen 
+          loading="lazy"
+          title={videos[0].title}
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        ></iframe>
         <div className="hero-caption">
           <h3>{videos[0].title}</h3>
         </div>
@@ -35,10 +44,14 @@ export default function VideoSection() {
         {videos.slice(1).map((video) => (
           <div className="video-card slide-up" key={video.id}>
             <div className="video-thumbnail">
-              <img src={video.thumbnail} alt={video.title} />
-              <a href={video.videoUrl} target="_blank" rel="noopener noreferrer" className="play-button">
-                ▶
-              </a>
+              <iframe 
+                src={video.videoUrl} 
+                frameBorder="0" 
+                allowFullScreen 
+                loading="lazy"
+                title={video.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              ></iframe>
             </div>
             <h4>{video.title}</h4>
           </div>

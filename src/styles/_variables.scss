@@ -1,11 +1,18 @@
 :root {
   --primary-color: #b22222;
   --secondary-color: #f5c518;
+  --accent-color: #ffd700;
   --background-color: #f9f9f9;
   --text-color: #222;
+  --text-light: #666;
   --card-background: #ffffff;
-  --card-radius: 12px;
-  --box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  --card-radius: 16px;
+  --box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
   --gradient: linear-gradient(135deg, #b22222, #8b0000);
-  --button-radius: 8px;
+  --gradient-hover: linear-gradient(135deg, #8b0000, #b22222);
+  --button-radius: 12px;
+  --transition-speed: 0.3s;
+  --header-height: 70px;
+  --container-width: 1400px;
+  --spacing-unit: 8px;
 }
