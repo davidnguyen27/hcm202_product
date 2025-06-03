@@ -1,7 +1,7 @@
 export default function Events() {
   return (
     <section id="events" className="section">
-      <h2 className="fade-in">Sự Kiện Lịch Sử</h2>
+      <h2 className="section-title-events fade-in">Sự Kiện Lịch Sử</h2>
       <div className="events-content">
         <div className="event-item slide-up">
           <h3>Cách Mạng Tháng Tám 1945</h3>
