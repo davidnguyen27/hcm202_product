@@ -14,33 +14,44 @@ export default function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const handleSmoothScroll = (e: React.MouseEvent<HTMLAnchorElement>, targetId: string) => {
+    e.preventDefault();
+    const targetElement = document.querySelector(targetId);
+    if (targetElement) {
+      targetElement.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };
+
   return (
     <header className="header">
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
         <ul>
           <li>
-            <a href="#biography">Tiểu Sử</a>
+            <a href="#biography" onClick={(e) => handleSmoothScroll(e, '#biography')}>Tiểu Sử</a>
           </li>
           <li>
-            <a href="#thoughts">Tư Tưởng</a>
+            <a href="#thoughts" onClick={(e) => handleSmoothScroll(e, '#thoughts')}>Tư Tưởng</a>
           </li>
           <li>
-            <a href="#legacy">Di Sản</a>
+            <a href="#legacy" onClick={(e) => handleSmoothScroll(e, '#legacy')}>Di Sản</a>
           </li>
           <li>
-            <a href="#quotes">Câu Nói</a>
+            <a href="#quotes" onClick={(e) => handleSmoothScroll(e, '#quotes')}>Câu Nói</a>
           </li>
           <li>
-            <a href="#timeline">Dòng Thời Gian</a>
+            <a href="#timeline" onClick={(e) => handleSmoothScroll(e, '#timeline')}>Dòng Thời Gian</a>
           </li>
           <li>
-            <a href="#articles">Bài Viết</a>
+            <a href="#articles" onClick={(e) => handleSmoothScroll(e, '#articles')}>Bài Viết</a>
           </li>
           <li>
-            <a href="#resources">Tài Liệu</a>
+            <a href="#resources" onClick={(e) => handleSmoothScroll(e, '#resources')}>Tài Liệu</a>
           </li>
           <li>
-            <a href="#events">Sự Kiện</a>
+            <a href="#events" onClick={(e) => handleSmoothScroll(e, '#events')}>Sự Kiện</a>
           </li>
         </ul>
       </nav>
@@ -54,7 +65,11 @@ export default function Header() {
           />
           <h1 className="title slide-up">Tư Tưởng Hồ Chí Minh</h1>
           <p className="subtitle slide-up">Di sản vô giá của dân tộc Việt Nam</p>
-          <a href="#biography" className="btn header-btn slide-up">
+          <a 
+            href="#biography" 
+            className="btn header-btn slide-up"
+            onClick={(e) => handleSmoothScroll(e, '#biography')}
+          >
             Khám Phá Hành Trình
           </a>
         </div>
