@@ -27,7 +27,7 @@ const Chatbox: React.FC = () => {
       {isOpen && (
         <div className="chatbox">
           <div className="chat-header">
-            <h3>Chat Support</h3>
+            <h3>Chat AI</h3>
           </div>
           
           <div className="messages-container">
@@ -46,11 +46,11 @@ const Chatbox: React.FC = () => {
               type="text"
               value={message}
               onChange={(e) => setMessage(e.target.value)}
-              placeholder="Type your message..."
+              placeholder="Nhập tin nhắn..."
               className="message-input"
             />
             <button type="submit" className="send-button">
-              Send
+              Gửi
             </button>
           </form>
         </div>
