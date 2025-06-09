@@ -3,17 +3,17 @@
 .resources-section {
   padding: calc(var(--spacing-unit) * 8) calc(var(--spacing-unit) * 4);
   background: var(--background-color);
-  
+
   .section-title {
     text-align: center;
     color: var(--primary-color);
     font-size: 2.5rem;
-    font-weight: 800;
+    font-weight: 700;
     margin-bottom: calc(var(--spacing-unit) * 6);
     position: relative;
-    
+
     &::after {
-      content: '';
+      content: "";
       position: absolute;
       bottom: -16px;
       left: 50%;
@@ -46,9 +46,9 @@
   position: relative;
   overflow: hidden;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  
+
   &::before {
-    content: '';
+    content: "";
     position: absolute;
     top: 0;
     left: 0;
@@ -63,16 +63,16 @@
   &:hover {
     transform: translateY(-8px);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
-    
+
     &::before {
       transform: scaleX(1);
     }
-    
+
     .resource-icon {
       transform: scale(1.1) rotate(5deg);
       background: var(--gradient-hover);
     }
-    
+
     .resource-button {
       background: var(--gradient-hover);
       transform: translateY(-2px);
@@ -91,7 +91,7 @@
   margin-bottom: calc(var(--spacing-unit) * 3);
   transition: all var(--transition-speed) ease;
   box-shadow: 0 4px 12px rgba(178, 34, 34, 0.2);
-  
+
   svg {
     color: white;
     font-size: 24px;
@@ -124,11 +124,11 @@
   cursor: pointer;
   transition: all var(--transition-speed) ease;
   align-self: flex-start;
-  
+
   &:hover {
     box-shadow: 0 4px 12px rgba(178, 34, 34, 0.3);
   }
-  
+
   &:focus {
     outline: none;
     box-shadow: 0 0 0 3px rgba(178, 34, 34, 0.3);
@@ -138,22 +138,22 @@
 @media (max-width: 768px) {
   .resources-section {
     padding: calc(var(--spacing-unit) * 6) calc(var(--spacing-unit) * 2);
-    
+
     .section-title {
       font-size: 2rem;
       margin-bottom: calc(var(--spacing-unit) * 4);
     }
   }
-  
+
   .resources-content {
     grid-template-columns: 1fr;
     gap: calc(var(--spacing-unit) * 3);
   }
-  
+
   .resource-item.modern-card {
     padding: calc(var(--spacing-unit) * 3);
   }
-  
+
   .resource-title {
     font-size: 1.2rem;
   }

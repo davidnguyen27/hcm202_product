@@ -1,11 +1,11 @@
 import LandingPage from "@/pages/LandingPage";
-import Chatbox from "./components/Chatbox";
+import { Chatbot } from "./features/Chat";
 
 export default function App() {
   return (
     <>
       <LandingPage />
-      <Chatbox />
+      <Chatbot />
     </>
   );
 }
