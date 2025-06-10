@@ -279,16 +279,41 @@
 
 // Responsive
 @media (max-width: 480px) {
-  .chatbox {
-    width: 98vw;
-    min-width: unset;
-    right: 1vw;
-    left: 1vw;
-    height: 70vh;
-    bottom: 80px;
-  }
   .chatbox-container {
-    right: 2vw;
-    bottom: 2vw;
+    width: 100%;
+    left: 0;
+    right: 0;
+    bottom: 0; // Đặt bottom về 0 để chiếm hết chiều cao nếu cần
+    padding: 24px; // Thêm padding để không bị dính sát cạnh
+    
+    // THAY ĐỔI QUAN TRỌNG Ở ĐÂY
+    align-items: flex-end; // Căn các phần tử về phía cuối (bên phải)
+    
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .chatbox {
+    position: relative;
+    bottom: unset;
+    right: unset;
+    left: unset;
+    width: 100%; // Chiếm hết chiều rộng của vùng padding
+    max-width: 400px; // Giới hạn chiều rộng tối đa
+    max-height: calc(100vh - 120px); // Giới hạn chiều cao
+    margin-bottom: 16px; // Tạo khoảng cách với nút bấm
+  }
+
+  .chat-toggle-button {
+    position: relative;
+    bottom: unset;
+    right: unset;
+  }
+}
+
+@media (max-width: 768px) {
+  .chatbox-container {
+    z-index: 10 !important;
   }
 }

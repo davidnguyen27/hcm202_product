@@ -409,33 +409,41 @@ export default function Timeline() {
 
   return (
     <section id="timeline" className="timeline-section">
-      <h2 className="section-title">Dòng Thời Gian</h2>
-      <div className="timeline-container">
-        {timelineEvents.map((event, index) => (
-          <div
-            key={event.year}
-            className={`timeline-row ${
-              index % 2 === 0 ? "left" : "right"
-            } slide-up`}
-          >
-            <div className="timeline-content">
-              <span className="timeline-year">{event.year}</span>
-              <p>{event.description}</p>
-              <button className="btn" onClick={() => setSelectedEvent(event)}>
-                Xem thêm
-              </button>
-            </div>
-            <span className="timeline-dot" />
-          </div>
-        ))}
-        <div className="timeline-line" />
-      </div>
+    <h2 className="section-title">Dòng Thời Gian</h2>
+    <div className="timeline-container">
+      
+      {/* Dòng line phải được render trước vòng lặp để có z-index đúng */}
+      <div className="timeline-line" /> 
 
-      <TimelineModal
-        isOpen={!!selectedEvent}
-        onClose={() => setSelectedEvent(null)}
-        event={selectedEvent}
-      />
-    </section>
+      {timelineEvents.map((event, index) => (
+        <div
+          key={event.year}
+          className={`timeline-row ${
+            index % 2 === 0 ? "left" : "right"
+          } slide-up`}
+        >
+          {/* === THAY ĐỔI Ở ĐÂY === */}
+          {/* ĐƯA DOT LÊN TRƯỚC */}
+          <span className="timeline-dot" />
+
+          {/* CONTENT ĐỨNG SAU */}
+          <div className="timeline-content">
+            <span className="timeline-year">{event.year}</span>
+            <p>{event.description}</p>
+            <button className="btn" onClick={() => setSelectedEvent(event)}>
+              Xem thêm
+            </button>
+          </div>
+          
+        </div>
+      ))}
+    </div>
+
+    <TimelineModal
+      isOpen={!!selectedEvent}
+      onClose={() => setSelectedEvent(null)}
+      event={selectedEvent}
+    />
+  </section>
   );
 }

@@ -6,6 +6,7 @@ import { QuizModal } from "@/features/Quiz";
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [showQuiz, setShowQuiz] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -25,13 +26,33 @@ export default function Header() {
     const targetElement = document.querySelector(targetId);
     if (targetElement) {
       targetElement.scrollIntoView({ behavior: "smooth", block: "start" });
+      setIsMobileMenuOpen(false); // Close mobile menu after clicking
     }
+  };
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
   };
 
   return (
     <header className="header">
       <nav className={`navbar ${isScrolled ? "scrolled" : ""}`}>
-        <ul>
+        <a
+          href="#quiz"
+          className="quiz-mobile-btn"
+          onClick={(e) => handleSmoothScroll(e, "#quiz")}
+        >
+          Trắc nghiệm
+        </a>
+        <button className="mobile-menu-btn" onClick={toggleMobileMenu}>
+          <span className={`hamburger ${isMobileMenuOpen ? "open" : ""}`}></span>
+        </button>
+        <ul className={`nav-links ${isMobileMenuOpen ? "open" : ""}`}>
+          {isMobileMenuOpen && (
+            <button className="mobile-menu-close-btn" onClick={toggleMobileMenu}>
+              ✕
+            </button>
+          )}
           <li>
             <a href="#biography" onClick={(e) => handleSmoothScroll(e, "#biography")}>
               Tiểu Sử
@@ -70,11 +91,6 @@ export default function Header() {
           <li>
             <a href="#events" onClick={(e) => handleSmoothScroll(e, "#events")}>
               Sự Kiện
-            </a>
-          </li>
-          <li>
-            <a href="#quiz" onClick={(e) => handleSmoothScroll(e, "#quiz")}>
-              Trắc nghiệm
             </a>
           </li>
         </ul>
