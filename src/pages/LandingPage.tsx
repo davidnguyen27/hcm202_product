@@ -1,3 +1,4 @@
+import { Chatbot } from "@/features/Chat";
 import Articles from "@/layouts/Articles";
 import Biography from "@/layouts/Biography";
 import Events from "@/layouts/Events";
@@ -28,6 +29,7 @@ export default function LandingPage() {
         <Articles />
         <Resources />
         <Events />
+        <Chatbot />
       </main>
       <Footer />
     </>

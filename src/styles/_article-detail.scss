@@ -1,0 +1,51 @@
+.article-detail-page {
+  padding: 4rem 2rem;
+  background: var(--background-color);
+}
+
+.back-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+  color: var(--primary-color);
+  text-decoration: none;
+  margin-bottom: 2rem;
+
+  &:hover {
+    color: var(--secondary-color);
+  }
+}
+
+.article-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+
+  .article-title {
+    font-size: 2rem;
+    color: var(--text-color);
+  }
+}
+
+.article-meta {
+  font-size: 0.95rem;
+  color: var(--text-light);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-summary {
+  font-style: italic;
+  color: var(--text-light);
+  margin-bottom: 2rem;
+}
+
+.article-content p {
+  color: var(--text-color);
+  margin-bottom: 1.5rem;
+  line-height: 1.75;
+}

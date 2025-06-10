@@ -1,6 +1,6 @@
 .blog-section {
   padding: 4rem 2rem;
-  background: var(--background-color);
+  background: #fff8f0;
 }
 
 .blog-grid {
@@ -11,16 +11,16 @@
 }
 
 .blog-post.modern-card {
-  background: #fff;
-  border-radius: 1.5rem;
-  box-shadow: 0 4px 24px 0 rgba(0, 0, 0, 0.07);
-  padding: 2.5rem 2rem 2rem 2rem;
-  transition: box-shadow 0.3s, transform 0.3s;
+  background: var(--card-background);
+  border-radius: var(--card-radius);
+  box-shadow: var(--box-shadow);
+  padding: 2.5rem 2rem 2rem;
+  transition: box-shadow var(--transition-speed), transform var(--transition-speed);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   text-decoration: none;
-  color: inherit;
+  color: var(--text-color);
   position: relative;
   cursor: pointer;
   min-height: 320px;
@@ -29,7 +29,7 @@
 
 .blog-post.modern-card:focus,
 .blog-post.modern-card:hover {
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.13);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.13);
   transform: translateY(-6px) scale(1.025);
 }
 
@@ -43,7 +43,7 @@
   align-items: center;
   justify-content: center;
   margin-bottom: 1.2rem;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .blog-meta {
@@ -51,7 +51,7 @@
   justify-content: space-between;
   width: 100%;
   font-size: 0.95rem;
-  color: #888;
+  color: var(--text-light);
   margin-bottom: 1.1rem;
 }
 
@@ -66,7 +66,7 @@
 .blog-excerpt {
   font-size: 1.05rem;
   line-height: 1.7;
-  color: #555;
+  color: var(--text-light);
   margin-bottom: 2.2rem;
   flex: 1 1 auto;
 }
@@ -80,8 +80,8 @@
   border-radius: 999px;
   padding: 0.5rem 1.3rem;
   font-size: 1rem;
-  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.06);
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transition: background var(--transition-speed), color var(--transition-speed);
   cursor: pointer;
   text-decoration: none;
 }
@@ -91,10 +91,15 @@
   font-size: 1.2em;
 }
 
-.blog-post.modern-card:focus .blog-readmore-btn,
-.blog-post.modern-card:hover .blog-readmore-btn {
+.blog-post.modern-card:hover .blog-readmore-btn,
+.blog-post.modern-card:focus .blog-readmore-btn {
   background: var(--secondary-color);
   color: #fff;
+}
+
+.blog-link-wrapper {
+  text-decoration: none;
+  color: inherit;
 }
 
 @media (max-width: 600px) {

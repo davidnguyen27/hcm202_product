@@ -1,11 +1,14 @@
-import LandingPage from "@/pages/LandingPage";
-import { Chatbot } from "./features/Chat";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import LandingPage from "./pages/LandingPage";
+import { ArticleDetailPage } from "./features/Articles";
 
 export default function App() {
   return (
-    <>
-      <LandingPage />
-      <Chatbot />
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/article" element={<ArticleDetailPage />} />
+      </Routes>
+    </Router>
   );
 }

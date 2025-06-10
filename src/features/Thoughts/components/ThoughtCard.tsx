@@ -11,7 +11,6 @@ export default function ThoughtCard() {
 
       {data?.map((item, idx) => (
         <div key={idx} className="thought-card">
-          <img src={`/images/default-thought-${idx + 1}.jpg`} alt={item.title} className="thought-image" />
           <h3>{item.title}</h3>
           <p>{item.description}</p>
         </div>
