@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react"; 
 import { Chatbot } from "@/features/Chat";
 import Articles from "@/layouts/Articles";
 import Biography from "@/layouts/Biography";
@@ -12,12 +13,50 @@ import Timeline from "@/layouts/Timeline";
 import VideoSection from "@/layouts/VideoSection";
 
 export default function LandingPage() {
+  const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const progressBar = document.querySelector('.progress-bar') as HTMLElement;
+      
+      if (progressBar) {
+        const totalHeight = document.body.scrollHeight - window.innerHeight;
+        const progress = (window.scrollY / totalHeight) * 100;
+        progressBar.style.width = `${progress}%`;
+      }
+
+      if (window.scrollY > 300) {
+        setIsScrollTopVisible(true);
+      } else {
+        setIsScrollTopVisible(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []); 
+
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth", 
+    });
+  };
+
   return (
     <>
       <div className="progress-bar"></div>
-      <div className="scroll-top">
-        <i className="fas fa-arrow-up"></i>
+
+      <div
+        className={`scroll-top ${isScrollTopVisible ? "visible" : ""}`}
+        onClick={scrollToTop}
+      >
+        <i className="fas fa-arrow-up">↑</i>
       </div>
+
       <Header />
       <main>
         <Biography />
@@ -34,4 +73,4 @@ export default function LandingPage() {
       <Footer />
     </>
   );
-}
+} 
