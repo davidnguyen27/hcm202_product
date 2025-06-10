@@ -11,6 +11,7 @@ import Resources from "@/layouts/Resources";
 import Thoughts from "@/layouts/Thoughts";
 import Timeline from "@/layouts/Timeline";
 import VideoSection from "@/layouts/VideoSection";
+import { FaArrowUp } from "react-icons/fa6";
 
 export default function LandingPage() {
   const [isScrollTopVisible, setIsScrollTopVisible] = useState(false);
@@ -54,7 +55,7 @@ export default function LandingPage() {
         className={`scroll-top ${isScrollTopVisible ? "visible" : ""}`}
         onClick={scrollToTop}
       >
-        <i className="fas fa-arrow-up">↑</i>
+         <FaArrowUp />
       </div>
 
       <Header />
