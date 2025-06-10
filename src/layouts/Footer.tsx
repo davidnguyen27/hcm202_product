@@ -13,20 +13,6 @@ export default function Footer() {
         <a href="#resources">Tài Liệu</a>
         <a href="#events">Sự Kiện</a>
       </div>
-      <div className="footer-social">
-        <a href="#" className="social-icon">
-          Facebook
-        </a>
-        <a href="#" className="social-icon">
-          Twitter
-        </a>
-        <a href="#" className="social-icon">
-          Instagram
-        </a>
-        <a href="#" className="social-icon">
-          YouTube
-        </a>
-      </div>
     </footer>
   );
 }

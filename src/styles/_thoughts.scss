@@ -5,12 +5,7 @@
   position: relative;
 
   .thoughts-header-wrapper {
-    position: sticky;
-    top: 0;
-    z-index: 10;
     background: #fff4f0;
-    padding: 1.5rem 0;
-    border-bottom: 1px solid #e0dcdc;
     text-align: center;
   }
 
@@ -31,41 +26,77 @@
   .thought-card {
     background: var(--card-background);
     border-left: 5px solid var(--primary-color);
-    padding: 1.75rem;
     border-radius: var(--card-radius);
     box-shadow: var(--box-shadow);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
 
-    h3 {
-      font-size: 1.4rem;
-      font-weight: 700;
-      color: #a40000;
-      margin-bottom: 1rem;
+    .thought-card-image-wrapper {
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #f0eaea;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
     }
 
-    p {
-      font-size: 1rem;
-      line-height: 1.6;
-      color: #333;
-      margin-bottom: 0.75rem;
+    .thought-card-image {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .thought-card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 1.25rem 1.75rem 1.75rem 1.75rem;
+      background: transparent;
+
+      h3 {
+        font-size: 1.4rem;
+        font-weight: 700;
+        color: #a40000;
+        margin-bottom: 1rem;
+        margin-top: 0.5rem;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #333;
+        margin-bottom: 0;
+      }
     }
 
     &:hover {
-      transform: translateY(-4px);
+      transform: translateY(-4px) scale(1.02);
       box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
+
+      .thought-card-image {
+        transform: scale(1.05);
+      }
     }
   }
-}
 
-// Responsive adjustments
-@media (max-width: 768px) {
-  .section-thoughts {
+  @media (max-width: 900px) {
+    .thoughts-content {
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    }
+  }
+  @media (max-width: 600px) {
     padding: 3rem 1rem;
 
     .thoughts-content {
       grid-template-columns: 1fr;
     }
-
     .thought-card {
       max-width: 500px;
       margin: 0 auto;

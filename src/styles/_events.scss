@@ -8,6 +8,34 @@
   margin-top: 40px;
 }
 
+#events.section {
+  background: #fff8f0;
+}
+
+.section-title-events {
+  text-align: center;
+  color: #b22222; // Đổi sang màu yêu cầu
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  margin-left: 0;
+  letter-spacing: 1px;
+  position: relative;
+  text-shadow: 0 2px 8px rgba(178, 34, 34, 0.08);
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: -16px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: var(--gradient);
+    border-radius: 2px;
+  }
+}
+
 .event-item {
   background: var(--card-background);
   padding: 2.5rem 2rem 2rem 2rem;
@@ -16,7 +44,9 @@
   border: 1.5px solid rgba(178, 34, 34, 0.08);
   display: flex;
   flex-direction: column;
+  justify-content: space-between; // Thêm dòng này để căn đều nội dung
   min-height: 260px;
+  height: 100%; // Đảm bảo các card bằng chiều cao nhau
   position: relative;
   transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
     border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
@@ -42,8 +72,6 @@
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 24px 48px rgba(178, 34, 34, 0.16), 0 8px 32px rgba(0, 0, 0, 0.1);
     border-color: var(--primary-color);
-    transition: box-shadow 0.35s cubic-bezier(0.4, 0, 0.2, 1), transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
-      border-color 0.25s cubic-bezier(0.4, 0, 0.2, 1);
     &::before {
       transform: scaleX(1);
     }
@@ -60,51 +88,21 @@
     margin-bottom: 1.1rem;
     letter-spacing: 0.5px;
     transition: color 0.2s, letter-spacing 0.2s;
+    flex-shrink: 0;
   }
 
-  p {
+  .event-desc {
     font-size: 1.08rem;
     color: var(--text-light);
     line-height: 1.7;
     margin-bottom: 0.7rem;
     flex-grow: 1;
-    transition: color 0.2s;
-    &:last-child {
-      margin-bottom: 0;
-    }
-  }
-}
-
-/* Poetry Section */
-.poetry-content {
-  display: none;
-}
-
-.poem {
-  display: none;
-}
-
-.section-title-events {
-  text-align: center;
-  color: var(--primary-color);
-  font-size: 2.4rem;
-  font-weight: 700;
-  margin-bottom: 2.5rem;
-  margin-left: 0;
-  letter-spacing: 1px;
-  position: relative;
-  text-shadow: 0 2px 8px rgba(178, 34, 34, 0.08);
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: -16px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: var(--gradient);
-    border-radius: 2px;
+    // Giới hạn số dòng mô tả để các card đều nhau:
+    display: -webkit-box;
+    -webkit-line-clamp: 5; // Số dòng muốn hiển thị
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 }
 
@@ -114,9 +112,9 @@
     gap: 1.5rem;
     padding: 0 1rem;
   }
-  .section-title-events {
-    font-size: 1.5rem;
-    margin-bottom: 1.5rem;
+  .event-item {
+    min-height: 180px;
+    padding: 1.2rem 1rem 1rem 1rem;
   }
 }
 
@@ -127,11 +125,7 @@
     padding: 0 0.5rem;
   }
   .event-item {
-    padding: 1.2rem 0.7rem 1rem 0.7rem;
-    min-height: 180px;
-  }
-  .section-title-events {
-    font-size: 1.1rem;
-    margin-bottom: 1rem;
+    min-height: 140px;
+    padding: 1rem 0.7rem 0.8rem 0.7rem;
   }
 }

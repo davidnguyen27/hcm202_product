@@ -1,14 +1,36 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { FaArrowLeft, FaRegNewspaper } from "react-icons/fa6";
-import { useArticleDetail } from "../hooks/useArticleDetail";
 import Header from "@/layouts/Header";
 import Footer from "@/layouts/Footer";
+import { articlesData } from "@/data/articles";
+
+function useQuery() {
+  return new URLSearchParams(useLocation().search);
+}
 
 export default function ArticleDetailPage() {
-  const { data: article, isLoading, isError } = useArticleDetail();
+  const query = useQuery();
+  const articleId = query.get("id");
+  const article = articlesData.find((a) => a._id === articleId);
 
-  if (isLoading) return <p className="loading-text">Đang tải bài viết...</p>;
-  if (isError || !article) return <p className="error-text">Không tìm thấy bài viết.</p>;
+  if (!article) {
+    return (
+      <>
+        <Header />
+        <main className="article-detail-page">
+          <div className="container">
+            <Link to="/" className="back-button">
+              <FaArrowLeft /> Quay lại danh sách bài viết
+            </Link>
+            <div className="article-detail">
+              <p>Không tìm thấy bài viết.</p>
+            </div>
+          </div>
+        </main>
+        <Footer />
+      </>
+    );
+  }
 
   return (
     <>

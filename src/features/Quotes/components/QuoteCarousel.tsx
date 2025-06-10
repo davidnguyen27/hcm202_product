@@ -1,30 +1,26 @@
 import { useState, useEffect } from "react";
-import { useQuote } from "../hooks/useQuote";
+import { quotesData } from "@/data/quotes";
 
 export default function QuoteCarousel() {
-  const { data: quotes, isLoading, error } = useQuote();
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
-    if (!quotes || quotes.length === 0) return;
+    if (!quotesData || quotesData.length === 0) return;
 
     const timer = setInterval(() => {
-      setIndex((prev) => (prev + 1) % quotes.length);
+      setIndex((prev) => (prev + 1) % quotesData.length);
     }, 7000);
 
     return () => clearInterval(timer);
-  }, [quotes]);
-
-  if (isLoading) return <p>Đang tải câu nói...</p>;
-  if (error || !quotes || quotes.length === 0) return <p>Không có dữ liệu để hiển thị.</p>;
+  }, [quotesData]);
 
   return (
     <div className="quotes-carousel">
       <p key={index} className="quote-text fade-quote">
-        “{quotes[index].content}”
+        “{quotesData[index].content}”
       </p>
       <div className="dots">
-        {quotes.map((_, i) => (
+        {quotesData.map((_, i) => (
           <span key={i} className={`dot ${i === index ? "active" : ""}`} onClick={() => setIndex(i)} />
         ))}
       </div>
